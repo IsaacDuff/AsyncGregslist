@@ -15,7 +15,7 @@ function _drawCars() {
   setHTML('listings', template)
 }
 
-//TODO - uncomment the this.viewcars
+//TODO - uncomment the view cars below
 export class CarsController {
   constructor() {
     console.log('cars loaded')

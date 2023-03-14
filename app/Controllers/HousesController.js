@@ -3,6 +3,7 @@ import { housesService } from "../Services/HousesService.js";
 import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
 import { House } from "../Models/House.js";
+import { getFormData } from "../Utils/FormHandler.js";
 
 function _drawHouses() {
     console.log('drawing houses');
@@ -31,22 +32,20 @@ export class HousesController {
         try {
             await housesService.getAllHouses()
         } catch (error) {
-            console.log(error)
+            console.error(error)
             Pop.error(error)
         }
     }
 
-    async createCar() {
+    async createHouse() {
         try {
             event.preventDefault()
             const form = event.target
             const formData = getFormData(form)
-            await carsService.createCar(formData)
-            // @ts-ignore
+            await housesService.createHouse(formData)
             bootstrap.Modal.getOrCreateInstance('#create-modal').hide()
-            // @ts-ignore
             form.reset()
-            Pop.toast(`Created Listing for ${formData.make} ${formData.model}`, 'success', 'top', 1000)
+            Pop.toast(`Created Listing for ${formData.year} ${formData.price}`, 'success', 'bottom', 2000)
         } catch (error) {
             console.error(error)
             Pop.error(error)

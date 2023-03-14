@@ -35,7 +35,7 @@ export class House {
 
     static DynamicHouseForm() {
         return ` 
-        <form onsubmit="app.carsController.createCar()" class="row p-4">
+        <form onsubmit="app.housesController.createHouse()" class="row p-4">
         <h3>List a House</h3>
         <div class="mb-2 col-5">
             <label for="bedrooms">Bedrooms</label>
