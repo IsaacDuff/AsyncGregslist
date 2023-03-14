@@ -21,15 +21,15 @@ export class House {
         <img class="img-fluid" src="${this.imgUrl}" alt="${this.bedrooms} ${this.bathrooms} ${this.year}">
         <h5 class="p-2 text-center text-dark">Beds: ${this.bedrooms} | Baths: ${this.bathrooms} | Year: ${this.year}</h5>
         <p class="text-dark">Market Cost: ${this.price}</p>
-        <button class="btn btn-danger" > <i class="mdi mdi-delete-forever"></i></button>
+        <button class="btn btn-danger" onclick="app.housesController.deleteHouse('${this.id}')"> <i class="mdi mdi-delete-forever"></i></button>
         <button class="btn btn-warning"  data-bs-toggle="modal"
-        data-bs-target="#edit-modal"><i class="mdi mdi-pen"></i></button>
+        data-bs-target="#edit-modal"><i class="mdi mdi-pencil"></i></button>
     </div>
     </div>
     `
     }
 
-    // onclick="app.carsController.deleteCar('${this.id}')"
+
     // onclick="app.carsController.openEditCarForm('${this.id}')"
 
 

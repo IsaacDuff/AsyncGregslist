@@ -52,4 +52,18 @@ export class HousesController {
         }
     }
 
+    async deleteHouse(id) {
+        try {
+            await housesService.deleteHouse(id)
+            Pop.toast('deleted house', 'success', 'bottom')
+
+        } catch {
+            console.error(error)
+            Pop.error(error)
+        }
+    }
+
+
+
+
 }

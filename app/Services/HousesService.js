@@ -7,15 +7,6 @@ export const sandbox = axios.create({
 
 class HousesService {
 
-    // async createCar(formData) {
-    //     // -----------------------------⬇️ endpoint
-    //     // --------------------------------------⬇️ body (our data being sent up)
-    //     const res = await sandbox.post('cars', formData)
-    //     console.log('[Creating Car]', res.data)
-    //     const newCar = new Car(res.data)
-    //     appState.cars.push(newCar)
-    //     appState.emit('cars')
-    // }
 
     async createHouse(formData) {
         const res = await sandbox.post('houses', formData)
@@ -28,9 +19,15 @@ class HousesService {
 
     async getAllHouses() {
         const res = await sandbox.get('houses')
-        console.log('[All Houses}', res.data)
+        console.log('[All House]', res.data)
         appState.houses = res.data.map(house => new House(house))
         console.log(appState.houses);
+    }
+
+    async deleteHouse(id) {
+        const res = await sandbox.delete(`houses/${id}`)
+        console.log('[deleted house]', res.data);
+        appState.houses = appState.houses.filter(house => house.id != id)
     }
 
 }
