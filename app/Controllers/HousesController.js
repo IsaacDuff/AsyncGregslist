@@ -63,6 +63,25 @@ export class HousesController {
         }
     }
 
+    openEditHouseForm(id) {
+        let house = appState.houses.find(house => house.id == id)
+        setHTML('edit-form', House.DynamicHouseForm(house))
+    }
+
+
+    async updateHouse(id) {
+        try {
+            event.preventDefault()
+            const form = event.target
+            const editData = getFormData(form)
+            console.log(editData)
+            await housesService.updateHouse(id, editData)
+            bootstrap.Modal.getOrCreateInstance('#edit-modal').hide()
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
+    }
 
 
 
